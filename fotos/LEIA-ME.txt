@@ -1,0 +1,78 @@
+═══════════════════════════════════════════════════════════════
+    INSTRUÇÕES PARA ADICIONAR AS FOTOS
+═══════════════════════════════════════════════════════════════
+
+1. Coloque todas as suas 13 fotos nesta pasta (fotos/)
+
+2. Renomeie as fotos conforme a ordem abaixo:
+   - foto1.jpg (ou .png, .jpeg)
+   - foto2.jpg
+   - foto3.jpg
+   - foto4.jpg
+   - foto5.jpg
+   - foto6.jpg
+   - foto7.jpg
+   - foto8.jpg
+   - foto9.jpg
+   - foto10.jpg
+   - foto11.jpg
+   - foto12.jpg
+   - foto13.jpg
+
+3. Formatos aceitos: .jpg, .jpeg ou .png
+
+4. DICA: Se preferir manter os nomes originais das fotos, você pode 
+   editar o arquivo index.html e alterar os caminhos das imagens
+   (procure por "src='fotos/foto1.jpg'" e altere para o nome real)
+
+═══════════════════════════════════════════════════════════════
+    ORDEM DAS FOTOS NO SITE (com textos românticos):
+═══════════════════════════════════════════════════════════════
+
+1. foto1.jpg - Selfie no restaurante/pátio (vocês dois sorrindo)
+   Texto: "O primeiro sorriso que me fez esquecer tudo ao redor..."
+
+2. foto2.jpg - Selfie íntima (olhando para a câmera)
+   Texto: "Olhos que me encontram e me fazem sentir em casa..."
+
+3. foto3.jpg - Momento descontraído (rindo juntos)
+   Texto: "Rir contigo é o som mais bonito que eu conheço..."
+
+4. foto4.jpg - Selfie de baixo (olhando para cima)
+   Texto: "Olhando para você, vejo meu futuro..."
+
+5. foto5.jpg - Carinho e afeto (mão no ombro)
+   Texto: "Seu toque é calma. Seu abraço é lar..."
+
+6. foto6.jpg - Na igreja/basílica (ela sozinha)
+   Texto: "Lugares sagrados ficam mais bonitos quando você está..."
+
+7. foto7.jpg - Dentro da igreja (selfie juntos)
+   Texto: "Em lugares grandiosos, você ainda é o que mais me chama..."
+
+8. foto8.jpg - Retrato em preto e branco (olhos)
+   Texto: "Olhos que contam histórias. Olhos que eu quero ver..."
+
+9. foto9.jpg - Colagem de 4 momentos (foto grande)
+   Texto: "Quatro momentos, infinitos sentimentos..."
+
+10. foto10.jpg - Olhando para cima (sorrisos)
+    Texto: "Sorrisos que não cabem em foto..."
+
+11. foto11.jpg - Carinho no ombro
+    Texto: "Seu ombro é meu lugar favorito..."
+
+12. foto12.jpg - Felicidade juntos
+    Texto: "Felicidade tem seu rosto. Tem seu sorriso..."
+
+13. foto13.jpg - Na basílica juntos (foto completa)
+    Texto: "Em lugares grandiosos, você ainda é o que mais me impressiona..."
+
+═══════════════════════════════════════════════════════════════
+    IMPORTANTE:
+═══════════════════════════════════════════════════════════════
+
+- As fotos aparecerão automaticamente quando você adicioná-las
+- Se alguma foto não aparecer, verifique se o nome está correto
+- Você pode personalizar os textos românticos editando o index.html
+- A página está pronta para celebrar seu 1 mês de namoro! 💕
