@@ -599,8 +599,8 @@ p {
 }
 
 .photo-item {
-    opacity: 0;
-    transform: translateY(30px);
+    opacity: 1;
+    transform: translateY(0);
     transition: all 0.8s ease-out;
 }
 
@@ -629,21 +629,25 @@ p {
 }
 
 .photo-wrapper::before {
-    content: '💕';
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 50px;
-    opacity: 0.3;
+    opacity: 0;
     z-index: 1;
-    display: none;
+    display: none !important;
+    visibility: hidden !important;
 }
 
-/* Mostrar placeholder se a imagem não existir ou não carregar */
-.photo-wrapper:has(img[src=""])::before,
-.photo-wrapper:has(img:not([src]))::before {
-    display: block;
+/* Garantir que imagens sempre apareçam */
+.photo-wrapper img {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    width: 100% !important;
 }
 
 .photo-item.photo-wide .photo-wrapper {
@@ -662,14 +666,16 @@ p {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover;
     transition: all 0.5s ease;
     z-index: 2;
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
 }
 
 /* Esconder placeholder quando a imagem carregar */

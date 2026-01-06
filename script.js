@@ -220,32 +220,34 @@ if (document.readyState === 'loading') {
     updateDaysCounter();
 }
 
-// Tratar erro de carregamento das imagens
+// Tratar erro de carregamento das imagens e garantir que apareçam
 document.querySelectorAll('.photo').forEach(img => {
+    // Forçar exibição da imagem
+    img.style.display = 'block';
+    img.style.visibility = 'visible';
+    img.style.opacity = '1';
+    img.style.height = 'auto';
+    img.style.width = '100%';
+    
     img.addEventListener('error', function() {
-        // Se a imagem não carregar, mostrar placeholder
-        this.style.display = 'none';
-        const wrapper = this.closest('.photo-wrapper');
-        if (wrapper) {
-            wrapper.style.background = 'linear-gradient(135deg, #ffeef8 0%, #fff5f9 100%)';
-            const placeholder = document.createElement('div');
-            placeholder.style.cssText = `
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-size: 50px;
-                opacity: 0.3;
-                z-index: 1;
-            `;
-            placeholder.textContent = '💕';
-            wrapper.appendChild(placeholder);
-        }
+        console.error('Erro ao carregar imagem:', this.src);
+        // Manter imagem visível mesmo com erro
+        this.style.display = 'block';
+        this.style.opacity = '0.5';
     });
     
     // Garantir que a imagem seja exibida se carregar
     img.addEventListener('load', function() {
         this.style.display = 'block';
+        this.style.visibility = 'visible';
         this.style.opacity = '1';
+        console.log('Imagem carregada:', this.src);
     });
+    
+    // Verificar se a imagem já está carregada
+    if (img.complete && img.naturalHeight !== 0) {
+        img.style.display = 'block';
+        img.style.visibility = 'visible';
+        img.style.opacity = '1';
+    }
 });
