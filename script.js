@@ -221,33 +221,55 @@ if (document.readyState === 'loading') {
 }
 
 // Tratar erro de carregamento das imagens e garantir que apareçam
-document.querySelectorAll('.photo').forEach(img => {
-    // Forçar exibição da imagem
-    img.style.display = 'block';
-    img.style.visibility = 'visible';
-    img.style.opacity = '1';
-    img.style.height = 'auto';
-    img.style.width = '100%';
+function initImages() {
+    const images = document.querySelectorAll('img.photo');
+    console.log('🔍 Total de imagens encontradas:', images.length);
     
-    img.addEventListener('error', function() {
-        console.error('Erro ao carregar imagem:', this.src);
-        // Manter imagem visível mesmo com erro
-        this.style.display = 'block';
-        this.style.opacity = '0.5';
-    });
-    
-    // Garantir que a imagem seja exibida se carregar
-    img.addEventListener('load', function() {
-        this.style.display = 'block';
-        this.style.visibility = 'visible';
-        this.style.opacity = '1';
-        console.log('Imagem carregada:', this.src);
-    });
-    
-    // Verificar se a imagem já está carregada
-    if (img.complete && img.naturalHeight !== 0) {
+    images.forEach((img, index) => {
+        const fullPath = new URL(img.src, window.location.href).href;
+        console.log(`📸 Imagem ${index + 1}:`, fullPath);
+        
+        // Forçar exibição da imagem
         img.style.display = 'block';
         img.style.visibility = 'visible';
         img.style.opacity = '1';
-    }
-});
+        img.style.position = 'absolute';
+        img.style.top = '0';
+        img.style.left = '0';
+        img.style.width = '100%';
+        img.style.height = '100%';
+        img.style.objectFit = 'cover';
+        img.style.zIndex = '2';
+        
+        // Verificar se a imagem já está carregada
+        if (img.complete && img.naturalHeight > 0) {
+            console.log('✅ Imagem já carregada:', img.src);
+            img.style.opacity = '1';
+        }
+        
+        img.addEventListener('error', function() {
+            console.error('❌ ERRO ao carregar imagem:', this.src);
+            console.error('Caminho tentado:', fullPath);
+            // Tentar caminho alternativo
+            const altPath = this.src.replace('fotos/', './fotos/');
+            console.log('🔄 Tentando caminho alternativo:', altPath);
+            this.src = altPath;
+        });
+        
+        img.addEventListener('load', function() {
+            console.log('✅ Imagem carregada com sucesso:', this.src);
+            this.style.opacity = '1';
+            this.style.display = 'block';
+        });
+    });
+}
+
+// Executar quando DOM estiver pronto
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initImages);
+} else {
+    initImages();
+}
+
+// Tentar novamente após um pequeno delay
+setTimeout(initImages, 500);
